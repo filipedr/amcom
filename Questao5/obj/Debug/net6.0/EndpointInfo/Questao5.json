@@ -1,0 +1,89 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Banco",
+    "description": "Documentação da API para operações bancárias",
+    "contact": {
+      "name": "Filipe Dutra Rodrigues",
+      "email": "filipedr@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/ContaBancaria/movimentacao": {
+      "post": {
+        "tags": [
+          "ContaBancaria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimentacaoCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimentacaoCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MovimentacaoCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ContaBancaria/saldo/{idcontacorrente}": {
+      "get": {
+        "tags": [
+          "ContaBancaria"
+        ],
+        "parameters": [
+          {
+            "name": "idcontacorrente",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MovimentacaoCommand": {
+        "type": "object",
+        "properties": {
+          "idContaCorrente": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoMovimento": {
+            "type": "string"
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "Questao5.Infrastructure.Services.Controllers.ContaBancariaController",
+    "Method": "MovimentarConta",
+    "RelativePath": "api/ContaBancaria/movimentacao",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Questao5.Application.Commands.Requests.MovimentacaoCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Questao5.Infrastructure.Services.Controllers.ContaBancariaController",
+    "Method": "ConsultarSaldo",
+    "RelativePath": "api/ContaBancaria/saldo/{idcontacorrente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idcontacorrente",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
